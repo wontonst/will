@@ -205,9 +205,9 @@ IO_BACKENDS = "
         # Set for hipchat
         for b in settings["IO_BACKENDS"]:
             if "hipchat" in b:
-                if "ALLOW_INSECURE_HIPCHAT_SERVER" in settings and\
+                if ("ALLOW_INSECURE_HIPCHAT_SERVER" in settings and
                         (settings["ALLOW_INSECURE_HIPCHAT_SERVER"] is True or
-                         settings["ALLOW_INSECURE_HIPCHAT_SERVER"].lower() == "true"):
+                         settings["ALLOW_INSECURE_HIPCHAT_SERVER"].lower() == "true")):
                     warn("You are choosing to run will with SSL disabled. "
                          "This is INSECURE and should NEVER be deployed outside a development environment.")
                     settings["ALLOW_INSECURE_HIPCHAT_SERVER"] = True
@@ -403,10 +403,10 @@ IO_BACKENDS = "
                     key = auto_key()
                     if key:
                         warn(
-                            "No SECRET_KEY specified and ENABLE_INTERNAL_ENCRYPTION is on.\n" +
-                            "  Temporarily auto-generating a key specific to this computer:\n    %s\n" % (key,) +
-                            "  Please set WILL_SECRET_KEY in the environment as soon as possible to ensure \n" +
-                            "  Will is able to access information from previous runs."
+                            "No SECRET_KEY specified and ENABLE_INTERNAL_ENCRYPTION is on.\n"
+                            + "  Temporarily auto-generating a key specific to this computer:\n    %s\n" % (key,)
+                            + "  Please set WILL_SECRET_KEY in the environment as soon as possible to ensure \n"
+                            + "  Will is able to access information from previous runs."
                         )
                     else:
                         error(
